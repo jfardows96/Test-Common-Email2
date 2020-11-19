@@ -105,6 +105,14 @@ public class EmailTest {
 		assertEquals("content",conT);	
 		
 	}
+	@Test
+	public void testSetFrom() throws Exception{
+			
+			email.setFrom("jan@gmail.com");
+			assertEquals("jan@gmail.com",email.getFromAddress().toString());
+	}
+
+
 }
 
 

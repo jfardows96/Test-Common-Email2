@@ -58,7 +58,20 @@ public class EmailTest {
 		assertEquals(6000, email.getSocketConnectionTimeout());
 	}
 
-	 
+	 @Test 
+	public void testgetHostName() throws Exception{
+		email.setHostName("localhost");
+		
+		assertEquals("localhost",email.getHostName());
+	}
+	
+	@Test 
+	public void testnullgetHostName() throws Exception{
+		email.setHostName(null);
+		
+		assertEquals(null,email.getHostName());
+	}
+
 }
 
 

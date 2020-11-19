@@ -51,7 +51,13 @@ public class EmailTest {
 		assertEquals(1, email.getReplyToAddresses().size());
 	}
 	
-	
+	@Test
+	public void testgetSocketConnectionTimeout() throws Exception{
+		
+		email.socketConnectionTimeout = 6000;
+		assertEquals(6000, email.getSocketConnectionTimeout());
+	}
+
 	 
 }
 

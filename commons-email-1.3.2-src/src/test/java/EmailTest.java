@@ -11,6 +11,7 @@ public class EmailTest {
 	
 	private static final String[] TEST_EMAILS = { "abbccc@.com", "a.b@c.org", "jjjjk@b.com"};
 	private static final String TEST_EMAILS2 =  "Jannatul@gmail.com";
+        private static String header = "check";
 	private EmailConcrete email;
 	
 	@Before
@@ -37,7 +38,12 @@ public class EmailTest {
 		assertEquals(1, email.getCcAddresses().size());
 	}
 	
-	 
+	 @Test
+	public void testAddHeader() throws Exception{
+		email.addHeader(header, "check");
+		
+		assertEquals(1, email.headers.size());
+	}
 	 
 }
 

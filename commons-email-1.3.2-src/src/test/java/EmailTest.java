@@ -10,7 +10,7 @@ public class EmailTest {
 
 	
 	private static final String[] TEST_EMAILS = { "abbccc@.com", "a.b@c.org", "jjjjk@b.com"};
-	
+	private static final String TEST_EMAILS2 =  "Jannatul@gmail.com";
 	private EmailConcrete email;
 	
 	@Before
@@ -31,7 +31,12 @@ public class EmailTest {
 		 assertEquals(3, email.getBccAddresses().size());
 	 }
 	 
-	 
+	 @Test
+	public void testAddCc() throws Exception{
+		email.addCc(TEST_EMAILS2);
+		assertEquals(1, email.getCcAddresses().size());
+	}
+	
 	 
 	 
 }

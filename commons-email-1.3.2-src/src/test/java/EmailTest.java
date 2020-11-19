@@ -3,7 +3,7 @@ package org.apache.commons.mail;
 import static org.junit.Assert.assertEquals;
 import java.util.Calendar;
 import java.util.Date;
-
+import javax.mail.internet.MimeMessage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -87,7 +87,24 @@ public class EmailTest {
 		assertEquals(0,email.getMailSession());
 		
 	}
+	@Test
+	public void testbuildMimeMessage() throws Exception{
+		
+		email.setHostName("localhost");
+		email.setSmtpPort(9090);
+		email.setFrom("assf@gmail.com");
+		email.addTo("ddjl@yahoo.com");
+		email.setSubject("aSubject");
+		final String headerValue= "22939u9   388338    39399333434";
+		email.addHeader("jskjdk", headerValue);
+		email.content = "content";
+		email.buildMimeMessage();
+		MimeMessage msg = email.getMimeMessage();
 
+		String conT = msg.getContent().toString();
+		assertEquals("content",conT);	
+		
+	}
 }
 
 
